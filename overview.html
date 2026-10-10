@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>民法 全体マップ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#F4F6F5;--sheet:#FFFFFF;--ink:#1B2127;--sub:#5A6570;--rule:#D5DBDF;--law:#2E3F8F;--law-soft:#E6E9F6;--tax:#1C7464;--tax-soft:#E0F1EC;--exam:#A8741C;--exam-soft:#F7EEDC;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--paper:#15191D;--sheet:#1D2328;--ink:#E6EAED;--sub:#A3ADB6;--rule:#323A42;--law:#9DAAF0;--law-soft:#262D4D;--tax:#6FD1BB;--tax-soft:#18342E;--exam:#E2B460;--exam-soft:#3A2F1A}}
+:root[data-theme="dark"]{--paper:#15191D;--sheet:#1D2328;--ink:#E6EAED;--sub:#A3ADB6;--rule:#323A42;--law:#9DAAF0;--law-soft:#262D4D;--tax:#6FD1BB;--tax-soft:#18342E;--exam:#E2B460;--exam-soft:#3A2F1A}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 12px)}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:"Noto Sans JP","Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;font-size:16px;line-height:1.8;-webkit-text-size-adjust:100%}
+h1,h2,h3{font-family:"Noto Serif JP","Hiragino Mincho ProN","Yu Mincho",serif;line-height:1.4}
+a{color:var(--law)}
+a:focus-visible{outline:3px solid var(--law);outline-offset:2px;border-radius:4px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px 60px}
+header{padding:40px 0 20px}
+header h1{font-size:clamp(1.7rem,5vw,2.6rem);margin:0 0 6px}
+header p{margin:0;color:var(--sub);max-width:44em}
+.jumpnav{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 0;padding:0;list-style:none}
+.jumpnav a{display:inline-block;text-decoration:none;font-size:.88rem;font-weight:700;padding:7px 13px;border:1px solid var(--rule);border-radius:999px;background:var(--sheet);color:var(--ink)}
+.jumpnav a.go{background:var(--law);border-color:var(--law);color:var(--sheet)}
+section{background:var(--sheet);border:1px solid var(--rule);border-radius:12px;padding:24px 20px;margin-top:24px}
+@media(min-width:700px){section{padding:30px 34px}}
+section>h2{font-size:1.4rem;margin:0 0 4px}
+.lead{color:var(--sub);margin:0 0 18px;font-size:.95rem}
+.mk{display:inline-block;font-size:.7rem;font-weight:700;padding:0 6px;border-radius:3px;margin-left:4px;vertical-align:2px}
+.mk.exam{background:var(--exam-soft);color:var(--exam)}.mk.tax{background:var(--tax-soft);color:var(--tax)}
+.map{display:grid;grid-template-columns:1fr;gap:20px}
+@media(min-width:900px){.map{grid-template-columns:repeat(3,1fr)}}
+.colh{font-size:1.05rem;margin:0 0 10px;padding-bottom:6px;border-bottom:2px solid var(--law);color:var(--law)}
+.tlist{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.tcard{display:block;text-decoration:none;color:var(--ink);border:1px solid var(--rule);border-radius:8px;padding:9px 12px;background:var(--paper)}
+.tcard:hover{border-color:var(--law)}
+.tn{display:block;font-weight:700;font-size:.95rem}
+.td{display:block;font-size:.82rem;color:var(--sub);line-height:1.6}
+.legend{font-size:.85rem;color:var(--sub);margin:-6px 0 16px}
+.flow{list-style:none;margin:0;padding:0;position:relative}
+.step{display:flex;gap:14px;padding:0 0 18px;position:relative}
+.step:not(:last-child)::before{content:"";position:absolute;left:17px;top:36px;bottom:0;width:2px;background:var(--rule)}
+.num{flex:0 0 36px;height:36px;border-radius:50%;background:var(--law);color:var(--sheet);font-weight:700;display:flex;align-items:center;justify-content:center;font-family:"Noto Serif JP",serif}
+.step h3{margin:4px 0 2px;font-size:1.05rem}
+.step p{margin:0 0 6px;color:var(--sub);font-size:.9rem}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips a{font-size:.82rem;text-decoration:none;font-weight:700;padding:3px 10px;border-radius:999px;background:var(--law-soft)}
+.tbl{overflow-x:auto;margin:8px 0 16px;-webkit-overflow-scrolling:touch}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:.9rem;line-height:1.6}
+th,td{border:1px solid var(--rule);padding:8px 10px;text-align:left;vertical-align:top}
+thead th{background:var(--law-soft);color:var(--law)}
+td a{font-size:.85rem;white-space:nowrap}
+h3.sub{font-size:1.05rem;margin:22px 0 4px;padding-left:10px;border-left:4px solid var(--law)}
+.klist{margin:6px 0 10px;padding-left:1.2em}
+.klist li{margin:4px 0}
+.klist a{font-size:.82rem;font-weight:700;white-space:nowrap}
+.taxlist{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr;gap:8px}
+@media(min-width:700px){.taxlist{grid-template-columns:1fr 1fr}}
+.taxlist a{display:block;text-decoration:none;color:var(--ink);background:var(--tax-soft);border-radius:8px;padding:9px 12px;font-size:.92rem}
+.taxlist a::before{content:"◆ ";color:var(--tax)}
+footer{color:var(--sub);font-size:.82rem;text-align:center;margin-top:30px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>民法 全体マップ</h1>
+  <p>総則・物権・債権の全体像を一枚で把握するためのページです。各項目を押すと、民法ノートの該当箇所が開きます。</p>
+  <ul class="jumpnav">
+    <li><a class="go" href="index.html">📘 民法ノートを開く</a></li>
+    <li><a href="#map">体系マップ</a></li>
+    <li><a href="#flow">契約の一生で見る</a></li>
+    <li><a href="#third">第三者保護の比較</a></li>
+    <li><a href="#nums">数字・期間の早見表</a></li>
+    <li><a href="#care">注意義務の比較</a></li>
+    <li><a href="#kaisei">主な改正点</a></li>
+    <li><a href="#tax">課税との接点</a></li>
+  </ul>
+</header>
+
+<section id="map">
+  <h2>体系マップ</h2>
+  <p class="lead">民法は「総則」に全体の共通ルールを置き、「物権」(物に対する権利)と「債権」(人に対する権利)に分けて定めています。</p>
+  <p class="legend"><span class="mk exam">★</span> 試験で頻出 <span class="mk tax">◆</span> 法人税の課税実務と関わりが深い</p>
+  <div class="map"><div class="col"><h3 class="colh">第1編 総則</h3><ol class="tlist"><li><a class="tcard" href="index.html#c1"><span class="tn">1. 基本原則</span><span class="td">信義則・権利濫用の禁止。個別ルールで解決できないときの調整弁</span></a></li><li><a class="tcard" href="index.html#c2"><span class="tn">2. 人</span><span class="td">権利能力・意思能力・行為能力。制限行為能力者4類型と相手方の保護</span></a></li><li><a class="tcard" href="index.html#c3"><span class="tn">3. 住所・不在者・失踪宣告</span><span class="td">普通失踪7年・特別失踪1年。「みなす」と「推定する」</span></a></li><li><a class="tcard" href="index.html#c4"><span class="tn">4. 法人<span class="mk tax">◆</span></span><span class="td">目的の範囲(八幡製鉄・税理士会)。権利能力なき社団は総有</span></a></li><li><a class="tcard" href="index.html#c5"><span class="tn">5. 物</span><span class="td">有体物、不動産と動産、主物と従物、果実</span></a></li><li><a class="tcard" href="index.html#c6"><span class="tn">6. 法律行為</span><span class="td">公序良俗・不法原因給付・強行規定と任意規定</span></a></li><li><a class="tcard" href="index.html#c7"><span class="tn">7. 意思表示<span class="mk exam">★</span><span class="mk tax">◆</span></span><span class="td">心裡留保・虚偽表示・錯誤・詐欺・強迫と第三者保護</span></a></li><li><a class="tcard" href="index.html#c8"><span class="tn">8. 代理<span class="mk exam">★</span><span class="mk tax">◆</span></span><span class="td">顕名・無権代理と相続・表見代理3類型</span></a></li><li><a class="tcard" href="index.html#c9"><span class="tn">9. 無効と取消し<span class="mk tax">◆</span></span><span class="td">原状回復、追認・法定追認、取消権の期間</span></a></li><li><a class="tcard" href="index.html#c10"><span class="tn">10. 条件・期限、期間の計算<span class="mk tax">◆</span></span><span class="td">停止条件と解除条件、期限の利益、初日不算入</span></a></li><li><a class="tcard" href="index.html#c11"><span class="tn">11. 時効<span class="mk exam">★</span><span class="mk tax">◆</span></span><span class="td">援用・完成猶予と更新・取得時効と登記・消滅時効</span></a></li></ol></div><div class="col"><h3 class="colh">第2編 物権</h3><ol class="tlist"><li><a class="tcard" href="index.html#b1"><span class="tn">1. 物権総論</span><span class="td">物権法定主義・一物一権主義・物権的請求権</span></a></li><li><a class="tcard" href="index.html#b2"><span class="tn">2. 物権変動<span class="mk exam">★</span><span class="mk tax">◆</span></span><span class="td">意思主義、177条の第三者、相続と登記、即時取得</span></a></li><li><a class="tcard" href="index.html#b3"><span class="tn">3. 占有権</span><span class="td">自主占有・他主占有、占有の訴え</span></a></li><li><a class="tcard" href="index.html#b4"><span class="tn">4. 所有権<span class="mk tax">◆</span></span><span class="td">相隣関係・添付・共有(2021年改正)</span></a></li><li><a class="tcard" href="index.html#b5"><span class="tn">5. 用益物権<span class="mk tax">◆</span></span><span class="td">地上権と賃借権の比較、地役権</span></a></li><li><a class="tcard" href="index.html#b6"><span class="tn">6. 担保物権総論<span class="mk tax">◆</span></span><span class="td">通有性と効力の比較表</span></a></li><li><a class="tcard" href="index.html#b7"><span class="tn">7. 留置権</span><span class="td">牽連性の判例、同時履行の抗弁権との比較</span></a></li><li><a class="tcard" href="index.html#b8"><span class="tn">8. 先取特権</span><span class="td">一般・動産・不動産の先取特権と順位</span></a></li><li><a class="tcard" href="index.html#b9"><span class="tn">9. 質権</span><span class="td">要物契約・流質契約の禁止・3種類の質権</span></a></li><li><a class="tcard" href="index.html#b10"><span class="tn">10. 抵当権<span class="mk exam">★</span><span class="mk tax">◆</span></span><span class="td">物上代位・法定地上権・共同抵当・根抵当権</span></a></li><li><a class="tcard" href="index.html#b11"><span class="tn">11. 非典型担保<span class="mk tax">◆</span></span><span class="td">譲渡担保・所有権留保・仮登記担保</span></a></li></ol></div><div class="col"><h3 class="colh">第3編 債権</h3><ol class="tlist"><li><a class="tcard" href="index.html#s1"><span class="tn">1. 債権の目的</span><span class="td">特定物債権・種類債権・法定利率</span></a></li><li><a class="tcard" href="index.html#s2"><span class="tn">2. 債務不履行<span class="mk exam">★</span><span class="mk tax">◆</span></span><span class="td">履行遅滞の時期・損害賠償の範囲・金銭債務の特則</span></a></li><li><a class="tcard" href="index.html#s3"><span class="tn">3. 受領遅滞</span><span class="td">弁済の提供との関係、危険の移転</span></a></li><li><a class="tcard" href="index.html#s4"><span class="tn">4. 責任財産の保全<span class="mk exam">★</span><span class="mk tax">◆</span></span><span class="td">債権者代位権・詐害行為取消権</span></a></li><li><a class="tcard" href="index.html#s5"><span class="tn">5. 多数当事者の債権債務<span class="mk exam">★</span><span class="mk tax">◆</span></span><span class="td">連帯債務の絶対効・相対効、保証</span></a></li><li><a class="tcard" href="index.html#s6"><span class="tn">6. 債権譲渡・債務引受<span class="mk exam">★</span><span class="mk tax">◆</span></span><span class="td">譲渡制限特約・対抗要件・債務引受</span></a></li><li><a class="tcard" href="index.html#s7"><span class="tn">7. 債権の消滅<span class="mk exam">★</span><span class="mk tax">◆</span></span><span class="td">弁済・代位・相殺・免除</span></a></li><li><a class="tcard" href="index.html#s8"><span class="tn">8. 契約総論<span class="mk exam">★</span><span class="mk tax">◆</span></span><span class="td">成立・同時履行・危険負担・解除・定型約款</span></a></li><li><a class="tcard" href="index.html#s9"><span class="tn">9. 典型契約<span class="mk tax">◆</span></span><span class="td">売買・賃貸借・請負・委任など13種類</span></a></li><li><a class="tcard" href="index.html#s10"><span class="tn">10. 事務管理</span><span class="td">要件と管理者の権利義務</span></a></li><li><a class="tcard" href="index.html#s11"><span class="tn">11. 不当利得<span class="mk tax">◆</span></span><span class="td">返還の範囲・非債弁済・転用物訴権</span></a></li><li><a class="tcard" href="index.html#s12"><span class="tn">12. 不法行為<span class="mk exam">★</span><span class="mk tax">◆</span></span><span class="td">一般不法行為・特殊不法行為・債務不履行との比較</span></a></li></ol></div></div>
+</section>
+
+<section id="flow">
+  <h2>契約の一生で見る民法</h2>
+  <p class="lead">民法の各テーマは、ひとつの取引の流れに沿って並べると、どこで何が問題になるかが見えてきます。</p>
+  <ol class="flow"><li class="step"><span class="num">1</span><div><h3>契約を結ぶ</h3><p>申込みと承諾が合致すれば成立。方式は原則自由</p><div class="chips"><a href="index.html#s8-seiritsu">契約の成立</a><a href="index.html#s8-yakkan">定型約款</a><a href="index.html#s8-bunrui">契約の分類</a></div></div></li><li class="step"><span class="num">2</span><div><h3>その契約は有効か</h3><p>当事者の能力、意思表示の欠陥、内容の妥当性、代理権の有無をチェック</p><div class="chips"><a href="index.html#c2">人(能力)</a><a href="index.html#c7">意思表示</a><a href="index.html#c6">法律行為</a><a href="index.html#c8">代理</a><a href="index.html#c9">無効と取消し</a></div></div></li><li class="step"><span class="num">3</span><div><h3>いつ効力が生じるか</h3><p>条件・期限によって効力の発生や消滅が決まる。所有権は原則として契約時に移転</p><div class="chips"><a href="index.html#c10">条件・期限</a><a href="index.html#b2-ishi">所有権の移転時期</a></div></div></li><li class="step"><span class="num">4</span><div><h3>約束を果たす</h3><p>弁済で債権は消える。相手が履行するまで拒めることもある</p><div class="chips"><a href="index.html#s7-bensai">弁済</a><a href="index.html#s8-doji">同時履行の抗弁権</a><a href="index.html#s7-sosai">相殺</a><a href="index.html#s7-daibutsu">代物弁済・供託</a></div></div></li><li class="step"><span class="num">5</span><div><h3>うまくいかないとき</h3><p>履行の強制、損害賠償、解除。売買なら契約不適合責任</p><div class="chips"><a href="index.html#s2">債務不履行</a><a href="index.html#s8-kaijo">解除</a><a href="index.html#s8-kiken">危険負担</a><a href="index.html#s9-baibai">契約不適合責任</a><a href="index.html#s3">受領遅滞</a></div></div></li><li class="step"><span class="num">6</span><div><h3>回収を確実にする</h3><p>人的担保(保証)と物的担保(担保物権)、財産の流出防止</p><div class="chips"><a href="index.html#s5-hosho">保証</a><a href="index.html#b6">担保物権総論</a><a href="index.html#b10">抵当権</a><a href="index.html#b11">譲渡担保</a><a href="index.html#s4">責任財産の保全</a></div></div></li><li class="step"><span class="num">7</span><div><h3>第三者が現れたら</h3><p>不動産は登記、動産は引渡し、債権は通知・承諾で優劣を決める</p><div class="chips"><a href="index.html#b2-fudosan">不動産と登記</a><a href="index.html#b2-sokuji">即時取得</a><a href="index.html#s6-taiko">債権譲渡の対抗要件</a></div></div></li><li class="step"><span class="num">8</span><div><h3>時間が経つと</h3><p>権利を取得したり失ったりする</p><div class="chips"><a href="index.html#c11">時効</a></div></div></li><li class="step"><span class="num">9</span><div><h3>契約がなくても</h3><p>頼まれずにした事務、法律上の原因のない利益、他人への加害</p><div class="chips"><a href="index.html#s10">事務管理</a><a href="index.html#s11">不当利得</a><a href="index.html#s12">不法行為</a></div></div></li></ol>
+</section>
+
+<section id="third">
+  <h2>第三者保護の要件の比較</h2>
+  <p class="lead">民法の多くの論点は「本人を守るか、取引した第三者を守るか」の調整です。本人の落ち度が大きいほど、第三者に求められる要件は軽くなります。</p>
+  <div class="tbl"><table><thead><tr><th>場面</th><th>保護される第三者の要件</th><th>ノート</th></tr></thead><tbody><tr><td>心裡留保の無効(93条2項)</td><td><b>善意</b></td><td><a href="index.html#c7-shinri">意思表示</a></td></tr><tr><td>虚偽表示の無効(94条2項)</td><td><b>善意</b>(無過失・登記は不要)</td><td><a href="index.html#c7-kyogi">意思表示</a></td></tr><tr><td>錯誤による取消し(95条4項)</td><td><b>善意無過失</b></td><td><a href="index.html#c7-sakugo">意思表示</a></td></tr><tr><td>詐欺による取消し(96条3項)</td><td><b>善意無過失</b></td><td><a href="index.html#c7-sagi">意思表示</a></td></tr><tr><td>強迫による取消し</td><td><b>保護規定なし</b>(第三者にも対抗できる)</td><td><a href="index.html#c7-kyohaku">意思表示</a></td></tr><tr><td>失踪宣告の取消し(32条1項)</td><td><b>善意</b>(契約は当事者双方の善意が必要)</td><td><a href="index.html#c3-shisso">失踪宣告</a></td></tr><tr><td>代理権の濫用(107条)</td><td>相手方が<b>悪意又は有過失</b>なら無権代理とみなす</td><td><a href="index.html#c8-ranyo">代理</a></td></tr><tr><td>表見代理(109・110・112条)</td><td><b>善意無過失</b>(110条は「正当な理由」)</td><td><a href="index.html#c8-hyoken">代理</a></td></tr><tr><td>不動産の二重譲渡(177条)</td><td>善意・悪意を問わず<b>先に登記</b>した者(背信的悪意者を除く)</td><td><a href="index.html#b2-fudosan">物権変動</a></td></tr><tr><td>即時取得(192条)</td><td><b>平穏・公然・善意・無過失</b>で占有を開始(占有改定は不可)</td><td><a href="index.html#b2-sokuji">物権変動</a></td></tr><tr><td>契約の解除(545条1項)</td><td>善意・悪意を問わないが、判例は<b>登記</b>を要求</td><td><a href="index.html#s8-kaijo">契約総論</a></td></tr><tr><td>受領権者らしい外観の者への弁済(478条)</td><td>弁済者が<b>善意無過失</b></td><td><a href="index.html#s7-bensai">債権の消滅</a></td></tr><tr><td>譲渡制限特約付き債権の譲受人(466条3項)</td><td><b>悪意・重過失</b>の譲受人には債務者が履行を拒める</td><td><a href="index.html#s6-seigen">債権譲渡</a></td></tr><tr><td>相殺禁止特約(505条2項)</td><td>特約は<b>悪意・重過失</b>の第三者にのみ対抗できる</td><td><a href="index.html#s7-sosai">債権の消滅</a></td></tr></tbody></table></div>
+  <p class="lead" style="margin:0">取消し・解除・時効・相続で、第三者が「前」に現れたか「後」に現れたかによる違いは、<a href="index.html#b2-fudosan">物権変動「登記が問題になる典型パターン」</a>にまとめています。</p>
+</section>
+
+<section id="nums">
+  <h2>数字・期間の早見表</h2>
+  <p class="lead">試験で狙われやすい期間や数字を、分野ごとに集めました。</p>
+  <h3 class="sub">時効</h3><div class="tbl"><table><thead><tr><th>項目</th><th>期間・数字</th><th>条文</th></tr></thead><tbody><tr><td>債権の消滅時効</td><td>知った時から<b>5年</b>/行使できる時から<b>10年</b>(生命・身体は20年)</td><td><a href="index.html#c11-shometsu">166・167条</a></td></tr><tr><td>不法行為の損害賠償請求権</td><td>知った時から<b>3年</b>(生命・身体は5年)/不法行為時から<b>20年</b></td><td><a href="index.html#s12-songai">724条</a></td></tr><tr><td>債権・所有権以外の財産権</td><td>行使できる時から<b>20年</b>(所有権は時効消滅しない)</td><td><a href="index.html#c11-shometsu">166条2項</a></td></tr><tr><td>確定判決で確定した権利</td><td><b>10年</b></td><td><a href="index.html#c11-shometsu">169条</a></td></tr><tr><td>所有権の取得時効</td><td><b>20年</b>/占有開始時に善意無過失なら<b>10年</b></td><td><a href="index.html#c11-shutoku">162条</a></td></tr><tr><td>催告による完成猶予</td><td><b>6か月</b>(再度の催告は無効)</td><td><a href="index.html#c11-koshin">150条</a></td></tr><tr><td>協議を行う旨の書面合意</td><td>原則<b>1年</b>(再合意は通算<b>5年</b>まで)</td><td><a href="index.html#c11-koshin">151条</a></td></tr><tr><td>天災等による完成猶予</td><td>障害消滅から<b>3か月</b></td><td><a href="index.html#c11-koshin">161条</a></td></tr></tbody></table></div><h3 class="sub">取消し・取消権</h3><div class="tbl"><table><thead><tr><th>項目</th><th>期間・数字</th><th>条文</th></tr></thead><tbody><tr><td>取消権</td><td>追認できる時から<b>5年</b>/行為時から<b>20年</b></td><td><a href="index.html#c9-kikan">126条</a></td></tr><tr><td>詐害行為取消請求</td><td>知った時から<b>2年</b>/行為時から<b>10年</b></td><td><a href="index.html#s4-sagai">426条</a></td></tr><tr><td>制限行為能力者の相手方の催告</td><td><b>1か月以上</b>の期間</td><td><a href="index.html#c2-aite">20条</a></td></tr></tbody></table></div><h3 class="sub">人・意思表示</h3><div class="tbl"><table><thead><tr><th>項目</th><th>期間・数字</th><th>条文</th></tr></thead><tbody><tr><td>成年</td><td><b>18歳</b></td><td><a href="index.html#c2-minor">4条</a></td></tr><tr><td>普通失踪/特別失踪</td><td><b>7年</b>(満了時に死亡とみなす)/危難が去った後<b>1年</b>(危難が去った時)</td><td><a href="index.html#c3-shisso">30・31条</a></td></tr><tr><td>公示による意思表示</td><td>最後の掲載等から<b>2週間</b>で到達とみなす</td><td><a href="index.html#c7-toutatsu">98条</a></td></tr></tbody></table></div><h3 class="sub">物権</h3><div class="tbl"><table><thead><tr><th>項目</th><th>期間・数字</th><th>条文</th></tr></thead><tbody><tr><td>占有の訴え</td><td>占有回収の訴えは奪われた時から<b>1年</b></td><td><a href="index.html#b3-soken">201条</a></td></tr><tr><td>盗品・遺失物の回復請求</td><td>盗難・遺失の時から<b>2年</b></td><td><a href="index.html#b2-sokuji">193条</a></td></tr><tr><td>遺失物/埋蔵物</td><td>公告後<b>3か月</b>/<b>6か月</b>で拾得者・発見者が取得</td><td><a href="index.html#b4-shutoku">240・241条</a></td></tr><tr><td>建物と境界線</td><td><b>50cm</b>以上離す/<b>1m</b>未満の窓・縁側には目隠し</td><td><a href="index.html#b4-sorin">234・235条</a></td></tr><tr><td>共有物の不分割特約</td><td><b>5年</b>以内(更新可)</td><td><a href="index.html#b4-kyoyu">256条</a></td></tr><tr><td>過半数で設定できる賃借権等</td><td>山林<b>10年</b>/土地<b>5年</b>/建物<b>3年</b>/動産<b>6か月</b></td><td><a href="index.html#b4-kyoyu">252条4項</a></td></tr><tr><td>地上権(期間の定めなし)</td><td>裁判所が<b>20〜50年</b>の範囲で定める</td><td><a href="index.html#b5-chijo">268条</a></td></tr><tr><td>永小作権</td><td><b>20〜50年</b>(定めがなければ30年)</td><td><a href="index.html#b5-eikosaku">278条</a></td></tr><tr><td>不動産質権</td><td><b>10年</b>以内</td><td><a href="index.html#b9-fudosan">360条</a></td></tr><tr><td>抵当権の利息</td><td>満期となった<b>最後の2年分</b></td><td><a href="index.html#b10-naiyo">375条</a></td></tr><tr><td>抵当権消滅請求</td><td>書面受領後<b>2か月</b>以内に競売申立てがなければ承諾とみなす</td><td><a href="index.html#b10-daisan">384条</a></td></tr><tr><td>建物明渡猶予</td><td>買受けから<b>6か月</b></td><td><a href="index.html#b10-chintai">395条</a></td></tr><tr><td>根抵当権</td><td>確定期日は<b>5年</b>以内/設定者は<b>3年</b>経過後に確定請求(<b>2週間</b>後に確定)</td><td><a href="index.html#b10-ne">398条の6・19</a></td></tr></tbody></table></div><h3 class="sub">債権</h3><div class="tbl"><table><thead><tr><th>項目</th><th>期間・数字</th><th>条文</th></tr></thead><tbody><tr><td>法定利率</td><td>年<b>3%</b>、<b>3年</b>ごとに見直し</td><td><a href="index.html#s1-kinsen">404条</a></td></tr><tr><td>期限の利益喪失の保証人への通知</td><td>知った時から<b>2か月</b>以内(個人保証)</td><td><a href="index.html#s5-hosho">458条の3</a></td></tr><tr><td>事業債務の個人保証の公正証書</td><td>契約前<b>1か月</b>以内に作成</td><td><a href="index.html#s5-hosho">465条の6</a></td></tr><tr><td>個人貸金等根保証の元本確定期日</td><td><b>5年</b>以内(定めがなければ<b>3年</b>)</td><td><a href="index.html#s5-hosho">465条の3</a></td></tr><tr><td>契約不適合(種類・品質)</td><td>知った時から<b>1年</b>以内に通知</td><td><a href="index.html#s9-baibai">566条</a></td></tr><tr><td>買戻し</td><td><b>10年</b>以内(定めがなければ<b>5年</b>)</td><td><a href="index.html#s9-baibai">580条</a></td></tr><tr><td>賃貸借の存続期間</td><td>最長<b>50年</b></td><td><a href="index.html#s9-chintai">604条</a></td></tr><tr><td>期間の定めのない賃貸借の解約申入れ</td><td>土地<b>1年</b>/建物<b>3か月</b>/動産<b>1日</b></td><td><a href="index.html#s9-chintai">617条</a></td></tr><tr><td>用法違反の損害賠償・費用償還(使用貸借・賃貸借)</td><td>返還から<b>1年</b>以内</td><td><a href="index.html#s9-shiyo">600条</a></td></tr><tr><td>期間の定めのない雇用の解約申入れ</td><td><b>2週間</b>で終了</td><td><a href="index.html#s9-koyo">627条</a></td></tr></tbody></table></div>
+</section>
+
+<section id="care">
+  <h2>注意義務の比較</h2>
+  <p class="lead">同じ「無償」でも、委任と寄託で注意義務の程度が異なる点が頻出です。</p>
+  <div class="tbl"><table><thead><tr><th>注意義務の程度</th><th>誰が負うか</th></tr></thead><tbody><tr><td><b>善良な管理者の注意</b>(その立場の人に通常求められる注意)</td><td>特定物の引渡し前の債務者(<a href="index.html#s1-tokutei">400条</a>)、受任者 (<b>無償でも</b>、<a href="index.html#s9-inin">644条</a>)、有償の受寄者、留置権者(<a href="index.html#b7-koryoku">298条</a>)、質権者、共有物を使用する共有者(<a href="index.html#b4-kyoyu">249条3項</a>)</td></tr><tr><td><b>自己の財産に対するのと同一の注意</b>(より軽い注意)</td><td><b>無報酬の受寄者</b>(<a href="index.html#s9-kitaku">659条</a>)、受領遅滞後の債務者(<a href="index.html#s3-koka">413条</a>)</td></tr><tr><td><b>悪意又は重大な過失</b>がなければ責任を負わない</td><td>緊急事務管理の管理者(<a href="index.html#s10-gimu">698条</a>)</td></tr></tbody></table></div>
+</section>
+
+<section id="kaisei">
+  <h2>主な改正点(古い教材との違い)</h2>
+  <p class="lead">近年の改正で結論が変わった論点です。古い教材や問題集では改正前の内容になっているので注意してください。</p>
+  <h3 class="sub">2020年4月施行(債権法改正)</h3><ul class="klist"><li>意思能力のない者の法律行為は無効と明文化 <a href="index.html#c2-ishi">ノートへ</a></li><li>錯誤の効果が「無効」から「取消し」に。第三者は善意無過失で保護 <a href="index.html#c7-sakugo">ノートへ</a></li><li>代理権の濫用を明文化 <a href="index.html#c8-ranyo">ノートへ</a></li><li>消滅時効を「知った時から5年・行使できる時から10年」に一本化。短期消滅時効・商事時効を廃止 <a href="index.html#c11-shometsu">ノートへ</a></li><li>時効の「中断・停止」を「更新・完成猶予」に再編。協議の合意による完成猶予を新設 <a href="index.html#c11-koshin">ノートへ</a></li><li>不法行為の20年を除斥期間から消滅時効に。生命・身体の侵害は5年 <a href="index.html#s12-songai">ノートへ</a></li><li>法定利率を年3%の変動制に <a href="index.html#s1-kinsen">ノートへ</a></li><li>原始的不能でも損害賠償を請求できると明文化 <a href="index.html#c6-yuko">ノートへ</a></li><li>解除に債務者の帰責事由は不要に。危険負担は「履行拒絶権」に <a href="index.html#s8-kaijo">ノートへ</a></li><li>瑕疵担保責任を「契約不適合責任」に。追完請求・代金減額請求を明文化 <a href="index.html#s9-baibai">ノートへ</a></li><li>債権者代位で債務者の処分権限は制限されない。詐害行為取消を類型化し、判決の効力を債務者にも拡大 <a href="index.html#s4">ノートへ</a></li><li>譲渡制限特約に反する債権譲渡も有効に <a href="index.html#s6-seigen">ノートへ</a></li><li>連帯債務で履行の請求・免除・時効完成を相対的効力に <a href="index.html#s5-rentai">ノートへ</a></li><li>個人根保証の極度額、事業債務の個人保証の公正証書、保証人への情報提供義務を新設 <a href="index.html#s5-hosho">ノートへ</a></li><li>受働債権とする相殺の禁止を、悪意の不法行為と生命・身体の侵害に限定 <a href="index.html#s7-sosai">ノートへ</a></li><li>定型約款を新設 <a href="index.html#s8-yakkan">ノートへ</a></li><li>使用貸借・寄託を諾成契約に。書面による消費貸借も諾成に <a href="index.html#s9-shiyo">ノートへ</a></li><li>敷金・原状回復のルールを明文化。賃借物の一部滅失で賃料は当然減額 <a href="index.html#s9-chintai">ノートへ</a></li></ul><h3 class="sub">2023年4月施行(物権・所有者不明土地関係の改正)</h3><ul class="klist"><li>隣地使用権の明確化、越境した枝の切取り、継続的給付の設備設置権 <a href="index.html#b4-sorin">ノートへ</a></li><li>共有物の軽微な変更を過半数で決定。所在等不明共有者に関する裁判制度を新設 <a href="index.html#b4-kyoyu">ノートへ</a></li></ul><h3 class="sub">その他</h3><ul class="klist"><li>相続による権利の承継は、法定相続分を超える部分について登記が必要に(2019年施行) <a href="index.html#b2-fudosan">ノートへ</a></li><li>成年年齢を18歳に引下げ(2022年施行) <a href="index.html#c2-minor">ノートへ</a></li><li>一般の先取特権に「子の監護の費用」を追加(2024年改正) <a href="index.html#b8-shurui">ノートへ</a></li></ul>
+</section>
+
+<section id="tax">
+  <h2>課税との接点</h2>
+  <p class="lead">ノートの◆の解説を、テーマ横断で一覧にしました。民法上の権利関係の判断が、課税の判断の出発点になる場面です。</p>
+  <ul class="taxlist"><li><a href="index.html#c7-kyogi">仮装取引の認定と虚偽表示</a></li><li><a href="index.html#c7-sakugo">課税関係の勘違いと錯誤(財産分与の判例)</a></li><li><a href="index.html#c8-hyoken">取引の帰属と代理・実質所得者課税</a></li><li><a href="index.html#c9-kikan">契約の取消し・解除と処理する事業年度</a></li><li><a href="index.html#c10-kikan">条件付き契約と収益の計上時期</a></li><li><a href="index.html#c11-shometsu">貸倒損失と時効、国税の徴収権の時効</a></li><li><a href="index.html#c4-tax">人格のない社団等への法人税の課税</a></li><li><a href="index.html#b2-ishi">所有権の移転時期と引渡基準</a></li><li><a href="index.html#b2-meinin">登記名義と実質的な所有者</a></li><li><a href="index.html#b4-kyoyu">共有物の分割と資産の譲渡</a></li><li><a href="index.html#b5-iriai">借地権と権利金の認定課税</a></li><li><a href="index.html#b6-tsuyu">譲渡担保と資産の譲渡、国税との優劣</a></li><li><a href="index.html#b10-ne">物上保証・競売と求償権</a></li><li><a href="index.html#s1-sentaku">無利息貸付と認定課税</a></li><li><a href="index.html#s2-songai">損害賠償金の益金計上時期</a></li><li><a href="index.html#s4-hikaku">詐害行為取消と国税の徴収</a></li><li><a href="index.html#s5-hosho">保証債務の履行と子会社支援</a></li><li><a href="index.html#s6-hikiuke">債権の売却・債務引受と寄附金</a></li><li><a href="index.html#s7-sonota">債務免除益・代物弁済・相殺</a></li><li><a href="index.html#s9-chintai">敷金・権利金・賃料の計上</a></li><li><a href="index.html#s9-kumiai">組合のパススルー課税</a></li><li><a href="index.html#s9-wakai">典型契約と収益の計上時期</a></li><li><a href="index.html#s12-hikaku">役員の横領と損害賠償請求権</a></li></ul>
+</section>
+
+<footer>民法ノートと対になる学習用ページです。条文は e-Gov法令検索 で最新のものを確認してください。</footer>
+</div>
+</body>
+</html>
